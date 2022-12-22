@@ -1,4 +1,6 @@
-## 设计文档
+# 设计
+
+## 颜色 <Badge>Color</Badge>
 
 :::info{title=设计文档}
 目前仅是测试阶段
@@ -57,10 +59,10 @@
     ">
     <div style="
         flex: 1;
-        background-color: #76bdfb;
+        background-color: #fb7676;
         padding: 10px
     ">
-        #76bdfb
+        #fb7676
     </div>
     <ul style="
         list-style: none;
@@ -72,15 +74,15 @@
     ">
         <li style="
         flex: 1;
-        background-color: #81c1f9;
+        background-color: #fd7f7f;
     "></li>
         <li style="
         flex: 1;
-        background-color: #8dc7f9;
+        background-color: #ff8e8e;
     "></li>
         <li style="
         flex: 1;
-        background-color: #9ed0fb;
+        background-color: #ffa8a8;
     "></li>
     </ul>
   </div>
@@ -95,10 +97,10 @@
     ">
     <div style="
         flex: 1;
-        background-color: #76bdfb;
+        background-color: #977bf8;
         padding: 10px
     ">
-        #76bdfb
+        #977bf8
     </div>
     <ul style="
         list-style: none;
@@ -110,15 +112,15 @@
     ">
         <li style="
         flex: 1;
-        background-color: #81c1f9;
+        background-color: #a38bf8;
     "></li>
         <li style="
         flex: 1;
-        background-color: #8dc7f9;
+        background-color: #ae99f5;
     "></li>
         <li style="
         flex: 1;
-        background-color: #9ed0fb;
+        background-color: #bcabf6;
     "></li>
     </ul>
   </div>
