@@ -7,7 +7,7 @@ export default defineConfig({
         nav: [
             {
                 title: '设计',
-                link: '/guide'
+                link: '/guide/origin'
             },
             {
                 title: '组件',
