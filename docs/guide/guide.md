@@ -21,10 +21,10 @@
     ">
     <div style="
         flex: 1;
-        background-color: #76bdfb;
+        background-color: #1976d2;
         padding: 10px
     ">
-        #76bdfb
+        #1976d2
     </div>
     <ul style="
         list-style: none;
@@ -36,15 +36,15 @@
     ">
         <li style="
         flex: 1;
-        background-color: #81c1f9;
+        background-color: #3281d0;
     "></li>
         <li style="
         flex: 1;
-        background-color: #8dc7f9;
+        background-color: #4195dd;
     "></li>
         <li style="
         flex: 1;
-        background-color: #9ed0fb;
+        background-color: #62aae9;
     "></li>
     </ul>
   </div>

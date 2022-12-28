@@ -9,7 +9,9 @@
         "paths": {
             "@@/*": [".dumi/tmp/*"],
             "FOundUI": ["src"],
-            "FOundUI/*": ["src/*", "*"]
+            "FOundUI/*": ["src/*", "*"],
+            "@style": ["src/style"],
+            "@style/*": ["src/style/*", "*"]
         }
     }
 }

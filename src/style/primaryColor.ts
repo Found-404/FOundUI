@@ -11,10 +11,8 @@ type primaryColorSystemType = {
     FOPROP: string
 }
 
-const primaryColorSystem: primaryColorSystemType = {
-    FOBLUE: '#76bdfb',
+export const primaryColorSystem: primaryColorSystemType = {
+    FOBLUE: '#1976d2',
     FORED: '#fb7676',
-    FOPROP: 'FOPROP'
+    FOPROP: '#977bf8'
 }
-
-export { primaryColorSystem }
