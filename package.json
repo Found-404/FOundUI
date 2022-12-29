@@ -46,6 +46,7 @@
     "dependencies": {
         "ahooks": "^3.7.4",
         "lodash": "^4.17.21",
+        "qrcode.react": "^3.1.0",
         "styled-components": "^5.3.6"
     },
     "devDependencies": {
