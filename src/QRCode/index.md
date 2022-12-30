@@ -1,5 +1,9 @@
 # QRCode
 
+:::warning{title=待定组件}
+QRCode 组件尚且处于待定状态
+:::
+
 ## 基本使用
 
 This is an example component.
