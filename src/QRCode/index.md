@@ -17,8 +17,8 @@ export default () => {
             ></QRCode>
             <QRCode
                 value="我会出手"
-                fgColor={primaryColorSystem.FOBLUE}
-                bgColor={primaryColorSystem.FORED}
+                fgColor={primaryColorSystem.FORANGE}
+                bgColor={primaryColorSystem.FOGREEN}
                 style={{ marginLeft: '20px' }}
             ></QRCode>
         </>
@@ -43,21 +43,8 @@ export default () => {
 ## 二维码下载
 
 ```jsx
-import { QRCode, Button } from 'FOundUI'
+import { QRCode, downloadQRCode, Button } from 'FOundUI'
 export default () => {
-    const downloadQRCode = () => {
-        const canvasImg = document.getElementById('qrCode') // 获取canvas类型的二维码
-        if (canvasImg) {
-            const src = canvasImg.toDataURL('image/png') // 将canvas对象转换为图片的data url
-            const a = document.createElement('a')
-            a.href = src
-            a.download = '二维码' // 图片name
-            document.body.appendChild(a)
-            a.click()
-            document.body.removeChild(a)
-        }
-    }
-
     return (
         <>
             <QRCode value="我会出手"></QRCode>

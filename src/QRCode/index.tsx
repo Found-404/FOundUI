@@ -38,10 +38,22 @@ interface QRCodeprops {
     status: 'loading' | 'expired'
     size: number
 }
+const downloadQRCode = () => {
+    const canvasImg = document.getElementById('qrCode') as HTMLCanvasElement // 获取canvas类型的二维码
+    if (canvasImg) {
+        const src = canvasImg.toDataURL('image/png') // 将canvas对象转换为图片的data url
+        const a = document.createElement('a')
+        a.href = src
+        a.download = '二维码' // 图片name
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+    }
+}
+export { downloadQRCode }
 
 const QRCode: FC<QRCodeprops> = (props) => {
     const { value, icon, fgColor, style, bgColor, status, size } = props
-
     return (
         <FOQRCode style={{ backgroundColor: bgColor, ...style }}>
             {/* 遮罩层 */}
