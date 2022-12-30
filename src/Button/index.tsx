@@ -11,6 +11,8 @@ import { primaryColorSystem } from '../style'
  */
 interface FOButtonProps {
     variant: 'text' | 'contained' | 'outlined'
+    radio: boolean
+    disabled: boolean
 }
 
 const FOButton = styled.button<FOButtonProps>`
@@ -20,10 +22,37 @@ const FOButton = styled.button<FOButtonProps>`
     -ms-user-select: none;
     user-select: none;
     display: inline-block;
-    color: ${(props) => (props.variant === 'contained' ? '#fff' : primaryColorSystem.FOBLUE)};
+    /* color: ${(props) => (props.variant === 'contained' ? '#fff' : primaryColorSystem.FOBLUE)}; */
+    color: ${(props) => {
+        if (props.variant === 'contained' && props.disabled === false) {
+            return '#fff'
+        } else if (props.variant === 'contained' && props.disabled === true) {
+            return '#00000042'
+        } else if (props.variant !== 'contained' && props.disabled === false) {
+            return primaryColorSystem.FOBLUE
+        } else if (props.variant !== 'contained' && props.disabled === true) {
+            return '#00000042'
+        }
+    }};
     padding: 9px 15px;
+    cursor: ${(props) => (!props.disabled ? 'pointer' : 'default')};
     /* background-color: #ffffff10; */
     background-color: ${(props) => {
+        if (props.disabled) {
+            switch (props.variant) {
+                case 'text':
+                    return '#ffffff10'
+                    break
+                case 'contained':
+                    return '#0000001f'
+                    break
+                case 'outlined':
+                    return '#ffffff10'
+                    break
+                default:
+                    break
+            }
+        }
         switch (props.variant) {
             case 'text':
                 return '#ffffff10'
@@ -38,34 +67,43 @@ const FOButton = styled.button<FOButtonProps>`
                 break
         }
     }};
-    border-radius: 3px;
+    border-radius: ${(props) => (props.radio ? '20px' : '3px')};
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
     overflow: hidden;
-    box-shadow: ${(props) => (props.variant === 'contained' ? '1px 1px 3px #7459e9' : 'none')};
+    box-shadow: ${(props) =>
+        props.variant === 'contained' && !props.disabled ? '1px 1px 3px #7459e9' : 'none'};
     border-style: solid;
     box-sizing: border-box;
     border-width: 1px;
     border-color: ${(props) => {
-        return props.variant === 'outlined' ? primaryColorSystem.FOBLUE : '#ffffff11'
+        // return props.variant === 'outlined' ? primaryColorSystem.FOBLUE : '#ffffff11'
+        if (props.variant === 'outlined' && props.disabled) {
+            return '#0000001f'
+        } else if (props.variant === 'outlined' && !props.disabled) {
+            return primaryColorSystem.FOBLUE
+        } else {
+            return '#ffffff11'
+        }
     }};
     transition: all 0.4s ease;
     &:hover {
         background-color: ${(props) => {
-            switch (props.variant) {
-                case 'text':
-                    return primaryColorSystem.FOBLUE + '1a'
-                    break
-                case 'contained':
-                    return '#0a62bb'
-                    break
-                case 'outlined':
-                    return primaryColorSystem.FOBLUE + '1a'
-                    break
-
-                default:
-                    break
+            if (!props.disabled) {
+                switch (props.variant) {
+                    case 'text':
+                        return primaryColorSystem.FOBLUE + '1a'
+                        break
+                    case 'contained':
+                        return '#0a62bb'
+                        break
+                    case 'outlined':
+                        return primaryColorSystem.FOBLUE + '1a'
+                        break
+                    default:
+                        break
+                }
             }
         }};
     }
@@ -112,6 +150,9 @@ const FOspan = styled.span`
 interface ButtonProps {
     children: string
     variant?: 'text' | 'contained' | 'outlined'
+    radio?: boolean
+    disabled?: boolean
+    style?: React.CSSProperties
 }
 
 interface RippleArrayType {
@@ -133,7 +174,7 @@ const Ripple: FC<RippleProps> = ({ Xy = { top: 0, left: 0 } }) => (
 )
 
 const Button: FC<ButtonProps> = (props) => {
-    const { children, variant = 'text' } = props
+    const { children, variant = 'text', radio = false, style, disabled = false } = props
     const [rippleArray, setRippleArray] = useState<RippleArrayType[]>([])
 
     const ref = useRef<HTMLButtonElement>(null)
@@ -155,9 +196,16 @@ const Button: FC<ButtonProps> = (props) => {
         setRippleArray(newRipple)
     }
 
-    // 此处注意利用key值来区别开涟漪组件
+    // 此处注意利用key值来区别开涟漪气泡
     return (
-        <FOButton onMouseDown={click} ref={ref} variant={variant}>
+        <FOButton
+            style={style}
+            onMouseDown={click}
+            ref={ref}
+            variant={variant}
+            radio={radio}
+            disabled={disabled}
+        >
             {children}
             <span className="FOButton-root">
                 {rippleArray.map((tit) => (

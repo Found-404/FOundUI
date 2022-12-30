@@ -6,6 +6,8 @@
 目前仅是测试阶段
 :::
 
+设计文档的颜色标准可以自行添加
+
 <div style="
     display: flex;
     justify-content: space-between;
