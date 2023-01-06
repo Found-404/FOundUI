@@ -22,6 +22,7 @@ const FOButton = styled.button<FOButtonProps>`
     -ms-user-select: none;
     user-select: none;
     display: inline-block;
+    font-family: '微软雅黑';
     /* color: ${(props) => (props.variant === 'contained' ? '#fff' : primaryColorSystem.FOBLUE)}; */
     color: ${(props) => {
         if (props.variant === 'contained' && props.disabled === false) {
@@ -36,7 +37,6 @@ const FOButton = styled.button<FOButtonProps>`
     }};
     padding: 9px 15px;
     cursor: ${(props) => (!props.disabled ? 'pointer' : 'default')};
-    /* background-color: #ffffff10; */
     background-color: ${(props) => {
         if (props.disabled) {
             switch (props.variant) {
@@ -71,14 +71,12 @@ const FOButton = styled.button<FOButtonProps>`
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
-    overflow: hidden;
     box-shadow: ${(props) =>
         props.variant === 'contained' && !props.disabled ? '1px 1px 3px #7459e9' : 'none'};
     border-style: solid;
     box-sizing: border-box;
     border-width: 1px;
     border-color: ${(props) => {
-        // return props.variant === 'outlined' ? primaryColorSystem.FOBLUE : '#ffffff11'
         if (props.variant === 'outlined' && props.disabled) {
             return '#0000001f'
         } else if (props.variant === 'outlined' && !props.disabled) {
@@ -107,9 +105,8 @@ const FOButton = styled.button<FOButtonProps>`
             }
         }};
     }
-
     .FOButton-root {
-        display: inline-block;
+        overflow: hidden;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -159,7 +156,6 @@ interface RippleArrayType {
     key: number
     Xy: {
         top: number
-
         left: number
     }
 }
@@ -176,12 +172,10 @@ const Ripple: FC<RippleProps> = ({ Xy = { top: 0, left: 0 } }) => (
 const Button: FC<ButtonProps> = (props) => {
     const { children, variant = 'text', radio = false, style, disabled = false } = props
     const [rippleArray, setRippleArray] = useState<RippleArrayType[]>([])
-
     const ref = useRef<HTMLButtonElement>(null)
     const mouse = useMouse(ref.current)
-
     // 点击
-    const click = () => {
+    const onMouseDown = () => {
         const newRipple = cloneDeep(rippleArray)
         if (newRipple && newRipple.length > 3) {
             newRipple.shift()
@@ -199,8 +193,9 @@ const Button: FC<ButtonProps> = (props) => {
     // 此处注意利用key值来区别开涟漪气泡
     return (
         <FOButton
-            style={style}
-            onMouseDown={click}
+            {...props}
+            style={{ ...style }}
+            onMouseDown={onMouseDown}
             ref={ref}
             variant={variant}
             radio={radio}
