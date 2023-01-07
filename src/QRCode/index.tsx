@@ -26,15 +26,21 @@ const FOQRCode = styled.div<FOQRCodeProps>`
         left: 0;
         bottom: 0;
         right: 0;
-        // ${(props) =>
-            props.ramp
-                ? 'background: linear-gradient(45deg, #673ab7, #ff5722);mix-blend-mode: lighten;'
-                : ''};
         ${(props) =>
             props.ramp
-                ? `background: linear-gradient(45deg, ${props.ramp[0]}, ${props.ramp[1]});mix-blend-mode: lighten;`
+                ? `background: linear-gradient(45deg, ${props.ramp[0]},${props.ramp[1]});mix-blend-mode: lighten;`
                 : ''};
+        @keyframes hueRotate {
+            0 {
+                filter: hue-rotate(0);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        animation: hueRotate 2s infinite alternate;
     }
+    // linear-gradient(45deg, #ffc107, deeppink, #9c27b0);
 `
 const FOspan = styled.div<FOSpanProps>`
     position: absolute;
