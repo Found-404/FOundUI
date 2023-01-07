@@ -1,5 +1,9 @@
 # QRCode
 
+:::warning{title=待定组件}
+QRCode 组件尚且处于待定状态
+:::
+
 ## 基本使用
 
 This is an example component.
@@ -18,8 +22,12 @@ export default () => {
             <QRCode
                 value="我会出手"
                 fgColor={primaryColorSystem.FORANGE}
-                bgColor={primaryColorSystem.FOGREEN}
+                // bgColor={primaryColorSystem.FORANGE}
                 style={{ marginLeft: '20px' }}
+            ></QRCode>
+            <QRCode
+                value="我会出手"
+                ramp={[primaryColorSystem.FOGREEN, primaryColorSystem.FORCYRN]}
             ></QRCode>
         </>
     )
