@@ -5,8 +5,11 @@ import styled from 'styled-components'
 interface FOSpanProps {
     status: 'loading' | 'expired'
 }
+interface FOQRCodeProps {
+    ramp: string[]
+}
 // 组件styledCss
-const FOQRCode = styled.div`
+const FOQRCode = styled.div<FOQRCodeProps>`
     position: relative;
     display: inline-block;
     width: 154px;
@@ -15,6 +18,29 @@ const FOQRCode = styled.div`
     border-radius: 8px;
     border: 1px solid rgba(5, 5, 5, 0.06);
     box-sizing: border-box;
+    margin: 10px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        ${(props) =>
+            props.ramp
+                ? `background: linear-gradient(45deg, ${props.ramp[0]},${props.ramp[1]});mix-blend-mode: lighten;`
+                : ''};
+        @keyframes hueRotate {
+            0 {
+                filter: hue-rotate(0);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        animation: hueRotate 2s infinite alternate;
+    }
+    // linear-gradient(45deg, #ffc107, deeppink, #9c27b0);
 `
 const FOspan = styled.div<FOSpanProps>`
     position: absolute;
@@ -37,17 +63,32 @@ interface QRCodeprops {
     style: any
     status: 'loading' | 'expired'
     size: number
+    ramp: string[]
 }
+const downloadQRCode = () => {
+    const canvasImg = document.getElementById('qrCode') as HTMLCanvasElement // 获取canvas类型的二维码
+    if (canvasImg) {
+        const src = canvasImg.toDataURL('image/png') // 将canvas对象转换为图片的data url
+        const a = document.createElement('a')
+        a.href = src
+        a.download = '二维码' // 图片name
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+    }
+}
+export { downloadQRCode }
 
 const QRCode: FC<QRCodeprops> = (props) => {
-    const { value, icon, fgColor, style, bgColor, status, size } = props
+    const { value, icon, fgColor, style, bgColor, status, size, ramp } = props
 
     return (
-        <FOQRCode style={{ backgroundColor: bgColor, ...style }}>
+        <FOQRCode style={{ backgroundColor: bgColor, ...style }} {...{ ramp }}>
             {/* 遮罩层 */}
             {status === 'loading' ? (
                 <FOspan status={status}>
                     <div>
+                        <span>刷新</span>
                         <i>图标</i>
                     </div>
                 </FOspan>

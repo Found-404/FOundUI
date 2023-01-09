@@ -6,7 +6,7 @@
 ## 前言
 
 1. 😋 组件展示大舞台，有想法你就来，丑东西就不要搬进来了捏
-2. 😘 编写组件前请阅读文档，杜绝抄袭小鬼来当伸手党，至少点个 start 再跑
+2. 😘 编写组件前请阅读文档，杜绝抄袭小鬼来当伸手党，至少点个 star 再跑
 3. 😍 开源的没有技术含量的组件库，就是写着玩儿
 4. ✨ 请按照 gitflow 工作流规范开发
 5. 🎁 项目配备了.husky,会在提交前进行 eslint 以及 commit 提交规范检测
@@ -57,4 +57,8 @@ hygen component Gen Demo
 
 MIT
 
-🧐WeChat: bl_ack233
+## COOPERATE
+
+<a href="https://github.com/Found-404/FOundUI/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Found-404/FOundUI" />
+</a>
