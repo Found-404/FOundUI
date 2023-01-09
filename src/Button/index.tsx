@@ -112,6 +112,7 @@ const FOButton = styled.button<FOButtonProps>`
         position: absolute;
         top: 0px;
         left: 0px;
+        border-radius: ${(props) => (props.radio ? '20px' : '3px')};
     }
     .rtr-ripple-wrapper-exiting {
         opacity: 0.5;
