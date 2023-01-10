@@ -39,7 +39,7 @@ const GCMenu = styled.div<menuType>`
         0 9px 28px 8px rgb(0 0 0 / 5%);
     border-radius: 8px;
     transition: all 0.4s;
-    maxheight: 0px;
+    max-height: 0px;
     overflow: hidden;
 `
 const GCUl = styled.ul`

@@ -1,6 +1,7 @@
 # Print
 
-定制化 Console.log
+_定制化 Console.log_
+~~开发辅助组件,没什么大用处好吧 😋~~
 
 ```jsx
 import { Button, Print } from 'FOundUI'
@@ -22,3 +23,7 @@ export default () => {
     )
 }
 ```
+
+## API
+
+-   Print(string, [string])

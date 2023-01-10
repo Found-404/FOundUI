@@ -6,6 +6,15 @@
  * 4. 灰色 FOGREY
  */
 
+/**
+ * @const primaryColorSystem
+ * @desc 变量定义
+ * @property {string} FOBLUE 默认蓝色
+ * @property {string} FORED 默认红色
+ * @property {string} FOPROP 默认紫色
+ * @property {string} FOGREY 默认灰色
+ */
+
 type primaryColorSystemType = {
     FOBLUE: string
     FORED: string
