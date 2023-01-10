@@ -5,15 +5,11 @@ import React, { FC, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 import { primaryColorSystem } from '../style'
+import type { ButtonProps, FOButtonProps, RippleArrayType, RippleProps } from './Button'
 
 /**
  * FOButtonProps
  */
-interface FOButtonProps {
-    variant: 'text' | 'contained' | 'outlined'
-    radio: boolean
-    disabled: boolean
-}
 
 const FOButton = styled.button<FOButtonProps>`
     position: relative;
@@ -112,6 +108,7 @@ const FOButton = styled.button<FOButtonProps>`
         position: absolute;
         top: 0px;
         left: 0px;
+        border-radius: ${(props) => (props.radio ? '20px' : '3px')};
     }
     .rtr-ripple-wrapper-exiting {
         opacity: 0.5;
@@ -143,24 +140,6 @@ const FOspan = styled.span`
     background-color: #62aae9;
     border-radius: 50%;
 `
-
-interface ButtonProps {
-    children: string
-    variant?: 'text' | 'contained' | 'outlined'
-    radio?: boolean
-    disabled?: boolean
-    style?: React.CSSProperties
-}
-
-interface RippleArrayType {
-    key: number
-    Xy: {
-        top: number
-        left: number
-    }
-}
-
-type RippleProps = Pick<RippleArrayType, 'Xy'>
 
 /**
  * 涟漪气泡组件

@@ -33,5 +33,13 @@ module.exports = {
     // 末尾不需要逗号
     trailingComma: 'none',
     // 大括号内的首尾需要空格
-    bracketSpacing: true
+    bracketSpacing: true,
+    overrides: [
+        {
+            files: '*.md',
+            options: {
+                proseWrap: 'preserve'
+            }
+        }
+    ]
 }
