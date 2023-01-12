@@ -92,3 +92,9 @@ export default () => {
 图标按钮跟默认按钮一致默认三种样式,仅仅是变成圆形居中图标之分
 
 ## API
+
+| 参数     | 说明     | 类型    | 默认值 |
+| -------- | -------- | ------- | ------ |
+| variant  | 按钮类型 | string  | "text" |
+| radio    | 胶囊按钮 | boolean | false  |
+| disabled | 禁用按钮 | boolean | false  |

@@ -47,15 +47,37 @@ $ npm run build
 
 ## 开发指南
 
+### 开发模板生成
+
 项目配了 hygen 可以快速生成组件模板,请根据需求使用
 
 ```bash
 # 自动生成Demo组件模板
 # hygen component Gen 组件名
 hygen component Gen Demo
+
 ```
 
-MIT
+### 开发需求
+
+1. 项目配备了 eslint 和 prettierrc,需要开发者下载必要插件
+
+-   editorConfig
+-   eslint
+-   prettier
+-   Stylelint
+
+## 版本迭代
+
+```ts
+/**
+ * @version 1.0.0
+ * 脚手架搭建
+ * @version 1.1.0
+ * 部分基础组件开发
+ *
+ */
+```
 
 ## COOPERATE
 
