@@ -78,3 +78,13 @@ export default () => {
 ```
 
 ## API
+
+| 参数    | 说明          | 类型                | 默认值  |
+| ------- | ------------- | ------------------- | ------- |
+| value   | code 内容     | string              | text    |
+| icon    | code 图标     | string              | null    |
+| fgColor | code 颜色     | string(CSS color)   | #000000 |
+| bgColor | code 背景颜色 | string(CSS color)   | #FFFFFF |
+| status  | code 状态     | loading/expired     | null    |
+| size    | code 宽高     | number              | 128     |
+| ramp    | code 颜色渐变 | string[(CSS color)] | null    |

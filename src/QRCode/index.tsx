@@ -1,13 +1,7 @@
 import QRcode from 'qrcode.react'
 import React, { FC } from 'react'
 import styled from 'styled-components'
-
-interface FOSpanProps {
-    status: 'loading' | 'expired'
-}
-interface FOQRCodeProps {
-    ramp: string[]
-}
+import type { FOQRCodeProps, FOSpanProps, QRCodeprops } from './QRCode'
 // 组件styledCss
 const FOQRCode = styled.div<FOQRCodeProps>`
     position: relative;
@@ -40,7 +34,6 @@ const FOQRCode = styled.div<FOQRCodeProps>`
         }
         animation: hueRotate 2s infinite alternate;
     }
-    // linear-gradient(45deg, #ffc107, deeppink, #9c27b0);
 `
 const FOspan = styled.div<FOSpanProps>`
     position: absolute;
@@ -53,18 +46,6 @@ const FOspan = styled.div<FOSpanProps>`
     border-radius: 8px;
     background: ${(props) => (props.status ? 'rgba(255,255,255,.96)' : '')};
 `
-// 组件PropsType
-interface QRCodeprops {
-    children: any
-    value: string
-    icon: string
-    fgColor: string
-    bgColor: string
-    style: any
-    status: 'loading' | 'expired'
-    size: number
-    ramp: string[]
-}
 const downloadQRCode = () => {
     const canvasImg = document.getElementById('qrCode') as HTMLCanvasElement // 获取canvas类型的二维码
     if (canvasImg) {
