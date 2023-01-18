@@ -1,9 +1,5 @@
 # Dropdown
 
-:::warning{title=开发中}
-Dropdown 组件处于开发阶段
-:::
-
 ## 基本用法
 
 最简单的下拉菜单。
@@ -63,7 +59,7 @@ export default () => {
         }
     ]
     return (
-        <div style={{ display: 'flex' }}>
+        <>
             <Dropdown menu={item} placement="bottomLeft">
                 <Button variant="contained">bottomLeft</Button>
             </Dropdown>
@@ -82,7 +78,118 @@ export default () => {
             <Dropdown menu={item} placement="topRight">
                 <Button variant="contained">topRight</Button>
             </Dropdown>
-        </div>
+        </>
+    )
+}
+```
+
+## 触发下拉的行为
+
+暂时只有两种 `click` `hover` ，默认`hover`。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <>
+            <Dropdown menu={item} trigger="click" arrow>
+                <Button variant="contained">click</Button>
+            </Dropdown>
+            <Dropdown menu={item} trigger="hover">
+                <Button variant="contained">hover</Button>
+            </Dropdown>
+        </>
+    )
+}
+```
+
+## 菜单展开收起回调
+
+当菜单展开收起时都会执行。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <Dropdown
+            menu={item}
+            onOpenChange={(open: boolean) => {
+                console.log(open)
+            }}
+        >
+            <Button variant="contained">onOpenChange</Button>
+        </Dropdown>
+    )
+}
+```
+
+## 菜单点击回调
+
+点击带单中子项执行。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <Dropdown
+            menu={item}
+            onOpenClick={(key: string | number) => {
+                console.log(key)
+            }}
+        >
+            <Button variant="contained">onOpenClick</Button>
+        </Dropdown>
     )
 }
 ```
@@ -108,10 +215,17 @@ export default () => {
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
 
-| 参数 | 说明         | 类型                    | 默认值 |
-| ---- | ------------ | ----------------------- | ------ |
-| open | 菜单是否显示 | boolean                 | -      |
-| menu | 菜单配置项   | [MenuProps](#menuprops) | -      |
+| 参数             | 说明                                                                         | 类型                    | 默认值     |
+| ---------------- | ---------------------------------------------------------------------------- | ----------------------- | ---------- |
+| open             | 菜单是否显示                                                                 | boolean                 | -          |
+| trigger          | 触发下拉的行为                                                               | `click`,`hover`         | `hover`    |
+| menu             | 菜单配置项                                                                   | [MenuProps](#menuprops) | -          |
+| placement        | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string                  | bottomLeft |
+| overlayClassName | 下拉根元素的类名称                                                           | string                  | -          |
+| overlayStyle     | 下拉根元素的样式                                                             | CSSProperties           | -          |
+| disabled         | 菜单是否禁用                                                                 | boolean                 | false      |
+| onOpenChange     | 菜单显示状态改变时调用                                                       | (open: boolean) => void | -          |
+| onOpenClick      | 菜单子项点击时调用                                                           | (key: string) => void   | -          |
 
 ### MenuProps
 

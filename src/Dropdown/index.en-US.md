@@ -1,9 +1,5 @@
 # Dropdown
 
-:::warning{title=开发中}
-Dropdown 组件处于开发阶段
-:::
-
 ## Basic Usage
 
 The simplest drop-down menu.
@@ -87,6 +83,117 @@ export default () => {
 }
 ```
 
+## Trigger pull-down behavior
+
+There are only two temporarily `click` `hover` ，default`hover`。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <>
+            <Dropdown menu={item} trigger="click" arrow>
+                <Button variant="contained">click</Button>
+            </Dropdown>
+            <Dropdown menu={item} trigger="hover">
+                <Button variant="contained">hover</Button>
+            </Dropdown>
+        </>
+    )
+}
+```
+
+## Menu Expand Collapse Callback
+
+It will be executed when the menu is expanded or collapsed。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <Dropdown
+            menu={item}
+            onOpenChange={(open: boolean) => {
+                console.log(open)
+            }}
+        >
+            <Button variant="contained">onOpenChange</Button>
+        </Dropdown>
+    )
+}
+```
+
+## Menu click callback
+
+Click to execute with single sub-item。
+
+```jsx
+import { Dropdown, Button } from 'FOundUI'
+
+export default () => {
+    const item = [
+        {
+            key: '1',
+            label: <span>1st menu item</span>
+        },
+        {
+            key: '2',
+            disabled: true,
+            label: <span>2nd menu item</span>
+        },
+        {
+            key: '3',
+            danger: true,
+            label: '3rd menu item'
+        }
+    ]
+    return (
+        <Dropdown
+            menu={item}
+            onOpenClick={(key: string | number) => {
+                console.log(key)
+            }}
+        >
+            <Button variant="contained">onOpenClick</Button>
+        </Dropdown>
+    )
+}
+```
+
 ## API
 
 The properties are as follows
@@ -108,10 +215,17 @@ The properties are as follows
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
 
-| parameter | explain                       | type                    | Default |
-| --------- | ----------------------------- | ----------------------- | ------- |
-| open      | Whether the menu is displayed | boolean                 | -       |
-| menu      | Menu configuration item       | [MenuProps](#menuprops) | -       |
+| parameter        | explain                                                                              | type                    | Default    |
+| ---------------- | ------------------------------------------------------------------------------------ | ----------------------- | ---------- |
+| open             | Whether the menu is displayed                                                        | boolean                 | `hover`    |
+| trigger          | MTrigger pull-down behavior                                                          | `click`,`hover`         | -          |
+| menu             | Menu configuration item                                                              | [MenuProps](#menuprops) | -          |
+| placement        | Menu pop-up location：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string                  | bottomLeft |
+| overlayClassName | Class name of the drop-down root element                                             | string                  | -          |
+| overlayStyle     | Drop down the style of the root element                                              | CSSProperties           | -          |
+| disabled         | Whether the menu is disabled                                                         | boolean                 | false      |
+| onOpenChange     | Called when the menu display status changes                                          | (open: boolean) => void | -          |
+| onOpenClick      | Called when a menu sub-item is clicked                                               | (key: string) => void   | -          |
 
 ### MenuProps
 
