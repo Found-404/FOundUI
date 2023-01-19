@@ -96,7 +96,7 @@ const QRCode: FC<QRCodeprops> = (props) => {
                 value={value}
                 bgColor={bgColor}
                 fgColor={fgColor} // 二维码的颜色
-                size={size}
+                size={size} //二维码大小
                 imageSettings={{
                     // 二维码中间的logo图片
                     src: icon,
