@@ -147,11 +147,11 @@ export default () => {
     return (
         <Dropdown
             menu={item}
-            onOpenChange={(open: boolean) => {
+            openChange={(open: boolean) => {
                 console.log(open)
             }}
         >
-            <Button variant="contained">onOpenChange</Button>
+            <Button variant="contained">openChange</Button>
         </Dropdown>
     )
 }
@@ -184,11 +184,11 @@ export default () => {
     return (
         <Dropdown
             menu={item}
-            onOpenClick={(key: string | number) => {
+            openClick={(key: string | number) => {
                 console.log(key)
             }}
         >
-            <Button variant="contained">onOpenClick</Button>
+            <Button variant="contained">openClick</Button>
         </Dropdown>
     )
 }
@@ -213,7 +213,7 @@ export default () => {
 | placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
-| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
+| openChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
 
 | 参数             | 说明                                                                         | 类型                    | 默认值     |
 | ---------------- | ---------------------------------------------------------------------------- | ----------------------- | ---------- |
@@ -224,8 +224,8 @@ export default () => {
 | overlayClassName | 下拉根元素的类名称                                                           | string                  | -          |
 | overlayStyle     | 下拉根元素的样式                                                             | CSSProperties           | -          |
 | disabled         | 菜单是否禁用                                                                 | boolean                 | false      |
-| onOpenChange     | 菜单显示状态改变时调用                                                       | (open: boolean) => void | -          |
-| onOpenClick      | 菜单子项点击时调用                                                           | (key: string) => void   | -          |
+| openChange       | 菜单显示状态改变时调用                                                       | (open: boolean) => void | -          |
+| openClick        | 菜单子项点击时调用                                                           | (key: string) => void   | -          |
 
 ### MenuProps
 

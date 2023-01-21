@@ -13,8 +13,8 @@ interface DropdownProps {
     overlayClassName?: string
     overlayStyle?: React.CSSProperties
     disabled?: boolean
-    onOpenChange?: (open: boolean) => void
-    onOpenClick?: (key: string | number) => void
+    openChange?: (open: boolean) => void
+    openClick?: (key: string | number) => void
 }
 
 const GCDropdown = styled.div`
@@ -107,8 +107,8 @@ const Dropdown: FC<DropdownProps> = (props) => {
         trigger = 'hover',
         overlayClassName,
         overlayStyle,
-        onOpenChange,
-        onOpenClick
+        openChange,
+        openClick
     } = props
     // children.props.style={color:'red'}
 
@@ -128,8 +128,8 @@ const Dropdown: FC<DropdownProps> = (props) => {
                 maxHeight: '0px'
             })
         }
-        if (onOpenChange) {
-            onOpenChange(isOpen)
+        if (openChange) {
+            openChange(isOpen)
         }
     }, [isOpen])
     // 设置left值
@@ -152,8 +152,8 @@ const Dropdown: FC<DropdownProps> = (props) => {
         if (menu[index]?.disabled) {
             return
         }
-        if (onOpenClick) {
-            onOpenClick(menu[index]?.key as string | number)
+        if (openClick) {
+            openClick(menu[index]?.key as string | number)
         }
         setIsOpen(false)
     }
