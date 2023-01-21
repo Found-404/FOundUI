@@ -11,6 +11,7 @@
     "scripts": {
         "build": "father build",
         "build:watch": "father dev",
+        "delete": "rimraf node_modules",
         "dev": "dumi dev",
         "docs:build": "dumi build",
         "doctor": "father doctor",
