@@ -75,6 +75,8 @@ hygen component Gen Demo
  * 脚手架搭建
  * @version 1.1.0
  * 部分基础组件开发
+ * @version 1.1.2
+ * 多语言
  *
  */
 ```
