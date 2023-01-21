@@ -1,8 +1,8 @@
 # Dropdown
 
-## 基本用法
+## Basic Usage
 
-最简单的下拉菜单。
+The simplest drop-down menu.
 
 ```jsx
 import { Dropdown, Button } from 'FOundUI'
@@ -27,16 +27,16 @@ export default () => {
     return (
         <>
             <Dropdown menu={item}>
-                <Button variant="contained">下拉菜单</Button>
+                <Button variant="contained">Dropdown</Button>
             </Dropdown>
         </>
     )
 }
 ```
 
-## 弹出位置
+## Eject position
 
-支持 6 个弹出位置。
+Support 6 pop up positions.
 
 ```jsx
 import { Dropdown, Button } from 'FOundUI'
@@ -59,7 +59,7 @@ export default () => {
         }
     ]
     return (
-        <>
+        <div style={{ display: 'flex' }}>
             <Dropdown menu={item} placement="bottomLeft">
                 <Button variant="contained">bottomLeft</Button>
             </Dropdown>
@@ -78,14 +78,14 @@ export default () => {
             <Dropdown menu={item} placement="topRight">
                 <Button variant="contained">topRight</Button>
             </Dropdown>
-        </>
+        </div>
     )
 }
 ```
 
-## 触发下拉的行为
+## Trigger pull-down behavior
 
-暂时只有两种 `click` `hover` ，默认`hover`。
+There are only two temporarily `click` `hover` ，default`hover`。
 
 ```jsx
 import { Dropdown, Button } from 'FOundUI'
@@ -120,9 +120,9 @@ export default () => {
 }
 ```
 
-## 菜单展开收起回调
+## Menu Expand Collapse Callback
 
-当菜单展开收起时都会执行。
+It will be executed when the menu is expanded or collapsed。
 
 ```jsx
 import { Dropdown, Button } from 'FOundUI'
@@ -157,9 +157,9 @@ export default () => {
 }
 ```
 
-## 菜单点击回调
+## Menu click callback
 
-点击带单中子项执行。
+Click to execute with single sub-item。
 
 ```jsx
 import { Dropdown, Button } from 'FOundUI'
@@ -196,7 +196,7 @@ export default () => {
 
 ## API
 
-属性如下
+The properties are as follows
 
 <!--
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -215,25 +215,25 @@ export default () => {
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
 | openChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
 
-| 参数             | 说明                                                                         | 类型                    | 默认值     |
-| ---------------- | ---------------------------------------------------------------------------- | ----------------------- | ---------- |
-| open             | 菜单是否显示                                                                 | boolean                 | -          |
-| trigger          | 触发下拉的行为                                                               | `click`,`hover`         | `hover`    |
-| menu             | 菜单配置项                                                                   | [MenuProps](#menuprops) | -          |
-| placement        | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string                  | bottomLeft |
-| overlayClassName | 下拉根元素的类名称                                                           | string                  | -          |
-| overlayStyle     | 下拉根元素的样式                                                             | CSSProperties           | -          |
-| disabled         | 菜单是否禁用                                                                 | boolean                 | false      |
-| openChange       | 菜单显示状态改变时调用                                                       | (open: boolean) => void | -          |
-| openClick        | 菜单子项点击时调用                                                           | (key: string) => void   | -          |
+| parameter        | explain                                                                              | type                    | Default    |
+| ---------------- | ------------------------------------------------------------------------------------ | ----------------------- | ---------- |
+| open             | Whether the menu is displayed                                                        | boolean                 | `hover`    |
+| trigger          | MTrigger pull-down behavior                                                          | `click`,`hover`         | -          |
+| menu             | Menu configuration item                                                              | [MenuProps](#menuprops) | -          |
+| placement        | Menu pop-up location：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string                  | bottomLeft |
+| overlayClassName | Class name of the drop-down root element                                             | string                  | -          |
+| overlayStyle     | Drop down the style of the root element                                              | CSSProperties           | -          |
+| disabled         | Whether the menu is disabled                                                         | boolean                 | false      |
+| openChange       | Called when the menu display status changes                                          | (open: boolean) => void | -          |
+| openClick        | Called when a menu sub-item is clicked                                               | (key: string) => void   | -          |
 
 ### MenuProps
 
 下拉菜单属性
 
-| 参数     | 说明             | 类型      | 默认值 |
-| -------- | ---------------- | --------- | ------ |
-| key      | item 的唯一标志  | string    | -      |
-| label    | 菜单项标题       | ReactNode | -      |
-| disabled | 是否禁用         | boolean   | false  |
-| danger   | 展示错误状态样式 | boolean   | false  |
+| parameter | explain                 | type      | Default |
+| --------- | ----------------------- | --------- | ------- |
+| key       | Unique flag of item     | string    | -       |
+| label     | Menu item title         | ReactNode | -       |
+| disabled  | Disabled or not         | boolean   | false   |
+| danger    | Show error status style | boolean   | false   |
