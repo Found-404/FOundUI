@@ -77,6 +77,8 @@ hygen component Gen Demo
  * 部分基础组件开发
  * @version 1.1.2
  * 多语言
+ * @version 1.2.0
+ * Grid组件
  *
  */
 ```
