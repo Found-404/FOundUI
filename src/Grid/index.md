@@ -4,12 +4,18 @@
 BUTTON 组件处于开发阶段
 :::
 
+## 基础栅格
+
+从堆叠到水平排列。
+使用单一的一组 Row 和 Col 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 Row 内。
+
 ```jsx
 import { Row, Col } from 'FOundUI'
 export default () => {
     const style = {
         backgroundColor: '#1976d2',
-        color: '#fff'
+        color: '#fff',
+        padding: '10px 0'
     }
     return (
         <>
@@ -50,16 +56,18 @@ export default () => {
 }
 ```
 
-### 左右偏移
+## 左右偏移
 
-##### 列偏移。使用 offset 可以将列向右侧偏。例如，offset={4} 将元素向右侧偏移了 4 个列（column）的宽度。
+列偏移。
+使用 offset 可以将列向右侧偏。例如，offset={4} 将元素向右侧偏移了 4 个列（column）的宽度。
 
 ```jsx
 import { Row, Col } from 'FOundUI'
 export default () => {
     const style = {
         backgroundColor: '#1976d2',
-        color: '#fff'
+        color: '#fff',
+        padding: '10px 0'
     }
     return (
         <>
@@ -89,9 +97,10 @@ export default () => {
 
 #### Row
 
-| 参数   | 说明                                           | 类型   | 默认值 |
-| ------ | ---------------------------------------------- | ------ | ------ |
-| gutter | 栅格间隔,使用数组形式设置 [水平间距, 垂直间距] | Arrary | [0,0]  |
+| 参数   | 说明                                           | 类型    | 默认值 |
+| ------ | ---------------------------------------------- | ------- | ------ |
+| gutter | 栅格间隔,使用数组形式设置 [水平间距, 垂直间距] | Arrary  | [0,0]  |
+| wrap   | 是否自动换行                                   | boolean | true   |
 
 #### Col
 

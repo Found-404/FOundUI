@@ -14,7 +14,7 @@ const FOCol = styled.div<FOColProps>`
     display: ${(props) => (props.span === 0 ? 'none' : 'block')};
     margin-left: ${(props) => (props.offset ? ` ${(props.offset * 100) / 24}%` : '')};
 `
-const ColSpan = styled.div<any>`
+const ColContent = styled.div<any>`
     padding: ${(props) => `${props.gutter[0] / 2}px ${props.gutter[1] / 2}px`};
 `
 const Col: FC<FOColProps> = (props: FOColProps) => {
@@ -22,9 +22,9 @@ const Col: FC<FOColProps> = (props: FOColProps) => {
     const gutter = useContext(RowContext)
     return (
         <FOCol span={props.span} offset={props.offset}>
-            <ColSpan gutter={gutter}>
+            <ColContent gutter={gutter}>
                 <div style={style}>{children}</div>
-            </ColSpan>
+            </ColContent>
         </FOCol>
     )
 }

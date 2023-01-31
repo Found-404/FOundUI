@@ -1,15 +1,21 @@
 # Grid
 
-:::warning{title=开发中}
-BUTTON 组件处于开发阶段
+:::warning{title=Under development}
+BUTTON The component is in the development stage
 :::
+
+## Foundation grid
+
+From stacked to horizontal.
+Using a single set of Row and Col grid components, you can create a basic grid system where all columns (Col) must be placed within the Row.
 
 ```jsx
 import { Row, Col } from 'FOundUI'
 export default () => {
     const style = {
         backgroundColor: '#1976d2',
-        color: '#fff'
+        color: '#fff',
+        padding: '10px 0'
     }
     return (
         <>
@@ -50,16 +56,18 @@ export default () => {
 }
 ```
 
-### 左右偏移
+## Left-right migration
 
-##### 列偏移。使用 offset 可以将列向右侧偏。例如，offset={4} 将元素向右侧偏移了 4 个列（column）的宽度。
+line skew.
+Use offset to tilt the column to the right. For example, offset={4} offsets the element to the right by four column widths.
 
 ```jsx
 import { Row, Col } from 'FOundUI'
 export default () => {
     const style = {
         backgroundColor: '#1976d2',
-        color: '#fff'
+        color: '#fff',
+        padding: '10px 0'
     }
     return (
         <>
@@ -89,13 +97,14 @@ export default () => {
 
 #### Row
 
-| 参数   | 说明                                           | 类型   | 默认值 |
-| ------ | ---------------------------------------------- | ------ | ------ |
-| gutter | 栅格间隔,使用数组形式设置 [水平间距, 垂直间距] | Arrary | [0,0]  |
+| parameter | explain                                                                     | type    | default |
+| --------- | --------------------------------------------------------------------------- | ------- | ------- |
+| gutter    | Raster spacing, set using array form [horizontal spacing, vertical spacing] | Arrary  | [0,0]   |
+| wrap      | Whether to wrap lines automatically                                         | boolean | true    |
 
 #### Col
 
-| 参数   | 说明                                      | 类型   | 默认值 |
-| ------ | ----------------------------------------- | ------ | ------ |
-| span   | 栅格占位格数，为 0 时相当于 display: none | number | 6      |
-| offset | 栅格左侧的间隔格数，间隔内不可以有栅格    | number | \_     |
+| parameter | explain                                                                             | type   | default |
+| --------- | ----------------------------------------------------------------------------------- | ------ | ------- |
+| span      | Number of grid placeholders, equivalent to display: none if 0                       | number | 6       |
+| offset    | The number of spacers to the left of the grid. There can be no grids in the spacers | number | \_      |
