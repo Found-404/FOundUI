@@ -1,8 +1,6 @@
-# Grid
+# Grid 栅格
 
-:::warning{title=开发中}
-BUTTON 组件处于开发阶段
-:::
+24 栅格系统。
 
 ## 基础栅格
 

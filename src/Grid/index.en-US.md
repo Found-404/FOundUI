@@ -1,8 +1,6 @@
 # Grid
 
-:::warning{title=Under development}
-BUTTON The component is in the development stage
-:::
+24 grid system.
 
 ## Foundation grid
 
