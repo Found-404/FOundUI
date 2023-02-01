@@ -21,7 +21,7 @@ export default defineConfig({
                 },
                 {
                     title: 'Github',
-                    link: 'https://github.com/Found-404'
+                    link: 'https://github.com/Found-404/FOundUI'
                 }
             ],
             'en-US': [
@@ -35,7 +35,7 @@ export default defineConfig({
                 },
                 {
                     title: 'Github',
-                    link: 'https://github.com/Found-404'
+                    link: 'https://github.com/Found-404/FOundUI'
                 }
             ]
         }
