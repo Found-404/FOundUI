@@ -7,3 +7,5 @@
     -   修复部分错误输出
 -   @version 1.2.0
     -   Grid 组件
+-   @version 1.2.1
+    -   Grid 组件 **Warning: Received `true` for a non-boolean attribute `isedit`** 错误

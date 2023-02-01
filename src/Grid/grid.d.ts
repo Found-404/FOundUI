@@ -3,9 +3,9 @@
  */
 
 interface FORowProps {
-    gutter?: Array
+    gutter?: number[]
     children?: any
-    wrap?: any
+    wrap?: boolean | number
     style?: any
 }
 interface FOColProps {
@@ -13,7 +13,7 @@ interface FOColProps {
     offset?: number
     children?: any
     style?: any
-    gutter?: Array
+    gutter?: number[]
 }
 
 export { FORowProps, FOColProps }
