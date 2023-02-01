@@ -18,12 +18,12 @@ const Row: FC<FORowProps> = (props: FORowProps) => {
     const { children, gutter = [0, 0], style, wrap = true } = props
     /**
      * React对boolean类型的attribute的识别方式问题
-     * wrap传递必须写成 wrap={wrap ? 1 : 2}
+     * wrap传递必须写成 wrap={wrap ? 1 : 0}
      */
     const rowContext = React.useMemo(() => gutter, [gutter])
     return (
         <RowContext.Provider value={rowContext}>
-            <FORow style={style} wrap={wrap ? 1 : 2} gutter={gutter}>
+            <FORow style={style} wrap={wrap ? 1 : 0} gutter={gutter}>
                 {children}
             </FORow>
         </RowContext.Provider>
