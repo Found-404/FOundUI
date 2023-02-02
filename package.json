@@ -1,6 +1,6 @@
 {
     "name": "FOundUI",
-    "version": "0.0.1",
+    "version": "1.2.1",
     "description": "",
     "license": "MIT",
     "module": "dist/index.js",
@@ -11,6 +11,7 @@
     "scripts": {
         "build": "father build",
         "build:watch": "father dev",
+        "delete": "rimraf node_modules",
         "dev": "dumi dev",
         "docs:build": "dumi build",
         "doctor": "father doctor",
