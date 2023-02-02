@@ -1,8 +1,18 @@
 /**
- * 主色系
+ * @主色系
  * 1. 蓝色 FOBLUE
  * 2. 红色 FORED
  * 3. 紫色 FOPROP
+ * 4. 灰色 FOGREY
+ */
+
+/**
+ * @const primaryColorSystem
+ * @desc 变量定义
+ * @property {string} FOBLUE 默认蓝色
+ * @property {string} FORED 默认红色
+ * @property {string} FOPROP 默认紫色
+ * @property {string} FOGREY 默认灰色
  */
 
 type primaryColorSystemType = {
@@ -12,6 +22,7 @@ type primaryColorSystemType = {
     FORANGE: string
     FOGREEN: string
     FORCYRN: string
+    FOGREY: string
 }
 
 export const primaryColorSystem: primaryColorSystemType = {
@@ -20,5 +31,6 @@ export const primaryColorSystem: primaryColorSystemType = {
     FOPROP: '#977bf8',
     FORANGE: '#f7a278',
     FOGREEN: '#c8e9a0',
-    FORCYRN: '#6dd3ce'
+    FORCYRN: '#6dd3ce',
+    FOGREY: '#D3D3D3'
 }

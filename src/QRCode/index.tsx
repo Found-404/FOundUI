@@ -1,13 +1,7 @@
 import QRcode from 'qrcode.react'
 import React, { FC } from 'react'
 import styled from 'styled-components'
-
-interface FOSpanProps {
-    status: 'loading' | 'expired'
-}
-interface FOQRCodeProps {
-    ramp: string[]
-}
+import type { FOQRCodeProps, FOSpanProps, QRCodeprops } from './QRCode'
 // 组件styledCss
 const FOQRCode = styled.div<FOQRCodeProps>`
     position: relative;
@@ -40,31 +34,20 @@ const FOQRCode = styled.div<FOQRCodeProps>`
         }
         animation: hueRotate 2s infinite alternate;
     }
-    // linear-gradient(45deg, #ffc107, deeppink, #9c27b0);
 `
 const FOspan = styled.div<FOSpanProps>`
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     text-align: center;
-    line-height: 152px;
     border-radius: 8px;
     background: ${(props) => (props.status ? 'rgba(255,255,255,.96)' : '')};
 `
-// 组件PropsType
-interface QRCodeprops {
-    children: any
-    value: string
-    icon: string
-    fgColor: string
-    bgColor: string
-    style: any
-    status: 'loading' | 'expired'
-    size: number
-    ramp: string[]
-}
 const downloadQRCode = () => {
     const canvasImg = document.getElementById('qrCode') as HTMLCanvasElement // 获取canvas类型的二维码
     if (canvasImg) {
@@ -88,8 +71,9 @@ const QRCode: FC<QRCodeprops> = (props) => {
             {status === 'loading' ? (
                 <FOspan status={status}>
                     <div>
-                        <span>刷新</span>
-                        <i>图标</i>
+                        <span>
+                            <i>图标</i>
+                        </span>
                     </div>
                 </FOspan>
             ) : (
@@ -98,8 +82,10 @@ const QRCode: FC<QRCodeprops> = (props) => {
             {status === 'expired' ? (
                 <FOspan status={status}>
                     <div>
-                        <span>二维码过期</span>
-                        <i>图标</i>
+                        <p style={{ margin: 0 }}>二维码过期</p>
+                        <span>
+                            <i>图标</i>点击刷新
+                        </span>
                     </div>
                 </FOspan>
             ) : (
@@ -110,7 +96,7 @@ const QRCode: FC<QRCodeprops> = (props) => {
                 value={value}
                 bgColor={bgColor}
                 fgColor={fgColor} // 二维码的颜色
-                size={size}
+                size={size} //二维码大小
                 imageSettings={{
                     // 二维码中间的logo图片
                     src: icon,

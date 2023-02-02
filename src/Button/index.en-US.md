@@ -1,12 +1,12 @@
 # Button
 
-:::warning{title=开发中}
-BUTTON 组件处于开发阶段
+:::warning{title=Under development}
+BUTTON The component is in the development stage
 :::
 
-## 默认按钮
+## Default button
 
-具有涟漪效果的按钮
+Button with ripple effect
 
 ```jsx
 import { Button } from 'FOundUI'
@@ -24,9 +24,9 @@ export default () => {
 }
 ```
 
-## 胶囊按钮
+## Capsule button
 
-更改圆角大小后的普通按钮而已
+Normal button after changing fillet size
 
 ```jsx
 import { Button } from 'FOundUI'
@@ -48,9 +48,9 @@ export default () => {
 }
 ```
 
-## 禁用按钮
+## Disable button
 
-禁用之后的按钮不可操作
+The disabled button is inoperable
 
 ```jsx
 import { Button } from 'FOundUI'
@@ -83,18 +83,12 @@ export default () => {
 }
 ```
 
-## 不同尺寸按钮
+## Buttons of different sizes
 
-三种标准大小的按钮
+Three standard size buttons
 
-## 图标按钮
+## Icon button
 
-图标按钮跟默认按钮一致默认三种样式,仅仅是变成圆形居中图标之分
+The icon button is the same as the default button. There are three default styles, which are only divided into circular and centered icons
 
 ## API
-
-| 参数     | 说明     | 类型    | 默认值 |
-| -------- | -------- | ------- | ------ |
-| variant  | 按钮类型 | string  | "text" |
-| radio    | 胶囊按钮 | boolean | false  |
-| disabled | 禁用按钮 | boolean | false  |

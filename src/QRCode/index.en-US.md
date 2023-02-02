@@ -4,7 +4,7 @@
 QRCode 组件尚且处于待定状态
 :::
 
-## 基本使用
+## Basic use
 
 This is an example component.
 
@@ -21,20 +21,16 @@ export default () => {
             ></QRCode>
             <QRCode
                 value="我会出手"
-                fgColor={primaryColorSystem.FORANGE}
-                // bgColor={primaryColorSystem.FORANGE}
+                fgColor={primaryColorSystem.FOBLUE}
+                bgColor={primaryColorSystem.FORED}
                 style={{ marginLeft: '20px' }}
-            ></QRCode>
-            <QRCode
-                value="我会出手"
-                ramp={[primaryColorSystem.FOGREEN, primaryColorSystem.FORCYRN]}
             ></QRCode>
         </>
     )
 }
 ```
 
-## 不同状态
+## Different states
 
 ```jsx
 import { QRCode } from 'FOundUI'
@@ -48,11 +44,24 @@ export default () => {
 }
 ```
 
-## 二维码下载
+## QR code download
 
 ```jsx
-import { QRCode, downloadQRCode, Button } from 'FOundUI'
+import { QRCode, Button } from 'FOundUI'
 export default () => {
+    const downloadQRCode = () => {
+        const canvasImg = document.getElementById('qrCode') // 获取canvas类型的二维码
+        if (canvasImg) {
+            const src = canvasImg.toDataURL('image/png') // 将canvas对象转换为图片的data url
+            const a = document.createElement('a')
+            a.href = src
+            a.download = '二维码' // 图片name
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+        }
+    }
+
     return (
         <>
             <QRCode value="我会出手"></QRCode>
@@ -64,7 +73,7 @@ export default () => {
 }
 ```
 
-## 高级用法
+## Advanced Usage
 
 ```jsx
 import { QRCode } from 'FOundUI'
@@ -78,13 +87,3 @@ export default () => {
 ```
 
 ## API
-
-| 参数    | 说明          | 类型                | 默认值  |
-| ------- | ------------- | ------------------- | ------- |
-| value   | code 内容     | string              | text    |
-| icon    | code 图标     | string              | null    |
-| fgColor | code 颜色     | string(CSS color)   | #000000 |
-| bgColor | code 背景颜色 | string(CSS color)   | #FFFFFF |
-| status  | code 状态     | loading/expired     | null    |
-| size    | code 宽高     | number              | 128     |
-| ramp    | code 颜色渐变 | string[(CSS color)] | null    |
