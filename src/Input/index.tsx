@@ -85,7 +85,6 @@ background-color:#fff;
 cursor:auto;
 `}
 `
-
 const FOSpan = styled.span<any>`
     ${(props) => {
         switch (props.name) {
