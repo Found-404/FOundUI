@@ -8,10 +8,8 @@ export default () => {
             <div style={{ width: '30%' }}>
                 <Input disabled={true} prefix="￥" suffix="RMB" />
                 <br />
-
                 <Input />
                 <br />
-
                 <Input />
             </div>
         </>
