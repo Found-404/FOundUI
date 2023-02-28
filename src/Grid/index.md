@@ -17,7 +17,7 @@ export default () => {
     }
     return (
         <>
-            <Row gutter={[10, 20]}>
+            <Row gutter={[10, 20]} wrap={false}>
                 <Col span={24} style={style}>
                     col24
                 </Col>

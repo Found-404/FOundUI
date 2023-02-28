@@ -58,6 +58,18 @@ hygen component Gen Demo
 
 ```
 
+### 开发规范
+
+代码同步更新建议
+
+> 请使用 git rebase <分支名> 同步更新分支
+> git pull 会造成一次提交，如果 commit 过多推荐使用 **git rebase -i** 进行合并/修改
+
+```bash
+git rebase <分支名>
+
+```
+
 ### 开发需求
 
 1. 项目配备了 eslint 和 prettierrc,需要开发者下载必要插件
@@ -77,6 +89,10 @@ hygen component Gen Demo
  * 部分基础组件开发
  * @version 1.1.2
  * 多语言
+ * @version 1.2.0
+ * Grid组件
+ * @version 1.2.1
+ * Grid组件 接收到非布尔属性报错修复
  *
  */
 ```
