@@ -147,11 +147,11 @@ export default () => {
     return (
         <Dropdown
             menu={item}
-            onOpenChange={(open: boolean) => {
+            openChange={(open: boolean) => {
                 console.log(open)
             }}
         >
-            <Button variant="contained">onOpenChange</Button>
+            <Button variant="contained">openChange</Button>
         </Dropdown>
     )
 }
@@ -184,11 +184,11 @@ export default () => {
     return (
         <Dropdown
             menu={item}
-            onOpenClick={(key: string | number) => {
+            openClick={(key: string | number) => {
                 console.log(key)
             }}
         >
-            <Button variant="contained">onOpenClick</Button>
+            <Button variant="contained">openClick</Button>
         </Dropdown>
     )
 }
@@ -213,7 +213,7 @@ The properties are as follows
 | placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
-| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
+| openChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 | -->
 
 | parameter        | explain                                                                              | type                    | Default    |
 | ---------------- | ------------------------------------------------------------------------------------ | ----------------------- | ---------- |
@@ -224,8 +224,8 @@ The properties are as follows
 | overlayClassName | Class name of the drop-down root element                                             | string                  | -          |
 | overlayStyle     | Drop down the style of the root element                                              | CSSProperties           | -          |
 | disabled         | Whether the menu is disabled                                                         | boolean                 | false      |
-| onOpenChange     | Called when the menu display status changes                                          | (open: boolean) => void | -          |
-| onOpenClick      | Called when a menu sub-item is clicked                                               | (key: string) => void   | -          |
+| openChange       | Called when the menu display status changes                                          | (open: boolean) => void | -          |
+| openClick        | Called when a menu sub-item is clicked                                               | (key: string) => void   | -          |
 
 ### MenuProps
 
