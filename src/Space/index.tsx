@@ -6,13 +6,16 @@ type SpaceProps = {
     direction?: 'horizontal' | 'vertical'
     size?: 'small' | 'middle' | 'large' | number
     wrap?: boolean
-
 }
 
-const SpaceDiv = styled.div<SpaceProps>`
-display: flex;
-flex-direction: ${({direction}) => direction === 'vertical' ? 'column' : 'row'};
-gap: ${({ size }) => {
+const SpaceDiv = styled.div<{
+    direction?: 'horizontal' | 'vertical'
+    size?: 'small' | 'middle' | 'large' | number
+    wraps?: boolean
+}>`
+    display: flex;
+    flex-direction: ${({ direction }) => (direction === 'vertical' ? 'column' : 'row')};
+    gap: ${({ size }) => {
         if (typeof size === 'number') {
             return size + 'px'
         } else {
@@ -26,19 +29,14 @@ gap: ${({ size }) => {
             }
         }
     }};
-flex-wrap: ${({wrap})=>wrap?'wrap':''};
+    flex-wrap: ${({ wraps }) => (wraps ? 'wrap' : '')};
 `
 
 const Space = (props: SpaceProps) => {
-    const { children, direction = 'horizontal', size = 'small', wrap = false, } = props
+    const { children, direction = 'horizontal', size = 'small', wrap } = props
     const childArray = React.Children.toArray(children)
     return (
-        <SpaceDiv
-            direction={direction}
-            size={size}
-            wrap={wrap}
-            className='FOundUI-Space'
-        >
+        <SpaceDiv direction={direction} size={size} wraps={wrap} className="FOundUI-Space">
             {childArray.map((child, index) => (
                 <React.Fragment key={index}>
                     {child}
